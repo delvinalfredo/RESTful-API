@@ -12,11 +12,20 @@ Store.getAllOrders = (result) =>{
         if(err){
             console.log('Error while fetching orders', err);
             result(null,err);
-            // result.status(400).json(err)
         }else{
             console.log('Orders fetched successfully');
             result(null,res);
-            // result.status(200).json(result)
+        }
+    })
+}
+
+Store.getOrdersByID = (id, result)=>{
+    connection.query('SELECT * FROM store WHERE id=?', id, (err, res)=>{
+        if(err){
+            console.log('Error while fetching orders by id', err);
+            result(null, err);
+        }else{
+            result(null, res);
         }
     })
 }
