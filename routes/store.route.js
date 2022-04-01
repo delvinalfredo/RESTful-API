@@ -11,6 +11,6 @@ router.post('/create', controllerStores.createNewOrders);
 
 router.put('/order/:id', controllerStores.updateOrders);
 
-// router.delete('/order/:id',employeeController.deleteEmployee);
+router.delete('/order/:id',controllerStores.deleteOrders);
 
 module.exports = router;

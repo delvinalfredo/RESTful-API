@@ -42,10 +42,18 @@ exports.updateOrders = (req, res)=>{
     if(req.body.constructor === Object && Object.keys(req.body).length === 0){
         res.send(400).send({success: false, message: 'Please fill all fields'});
     }else{
-        modelStores.updateOrders(req.params.id, ordersReqData, (err, orders)=>{
+        modelStores.updateOrders(req.params.id, ordersReqData, (err, store)=>{
             if(err)
             res.send(err);
             res.json({status: true, message: 'Order updated Successfully'})
         })
     }
+}
+
+exports.deleteOrders = (req, res)=>{
+    modelStores.deleteOrders(req.params.id, (err, store)=>{
+        if(err)
+        res.send(err);
+        res.json({success:true, message: 'Order deleted successully!'});
+    })
 }

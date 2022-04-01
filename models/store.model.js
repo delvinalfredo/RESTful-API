@@ -37,10 +37,10 @@ Store.createOrders = (id, ordersReqData, result) => {
     [ordersReqData.name, ordersReqData.quantity, ordersReqData.status, id],
     (err, res) => {
       if (err) {
-        console.log("Error while updating the employee");
+        console.log("Error while updating the order");
         result(null, err);
       } else {
-        console.log("Employee updated successfully");
+        console.log("Order updated successfully");
         result(null, res);
       }
     }
@@ -66,5 +66,17 @@ Store.updateOrders = (id, orderReqData, result) => {
     }
   );
 };
+
+Store.deleteOrders = (id, result)=>{
+    connection.query("UPDATE store SET is_deleted=? WHERE id = ?", [1, id], (err, res)=>{
+        if(err){
+            console.log('Error while deleting the order');
+            result(null, err);
+        }else{
+            console.log("Order deleted successfully");
+            result(null, res);
+        }
+    });
+}
 
 module.exports = Store;
