@@ -7,14 +7,10 @@ router.get('/order', controllerStores.getOrders);
 
 router.get('/order/:id', controllerStores.getOrdersByID);
 
+router.post('/create', controllerStores.createNewOrders);
 
-// // create new employee
-// router.post('/', employeeController.createNewEmployee);
+router.put('/order/:id', controllerStores.updateOrders);
 
-// // update employee
-// router.put('/:id', employeeController.updateEmployee);
-
-// // delete employee
-// router.delete('/:id',employeeController.deleteEmployee);
+// router.delete('/order/:id',employeeController.deleteEmployee);
 
 module.exports = router;
